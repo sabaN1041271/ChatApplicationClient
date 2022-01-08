@@ -1,0 +1,31 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25 Dec 2021, 17:03:11
+    Author     : ntu-user
+*/
+
+.titled-pane 
+{
+-fx-background-color: white;
+-fx-background-insets: 0, 1, 2;
+-fx-background-radius: 5 5 0 0, 4 4 0 0, 3 3 0 0;
+-fx-padding: 0.166667em 0.833333em 0.25em 0.833333em; /* 2 10 3 10 */
+-fx-border-color:white;
+-fx-border-radius:0;
+}
+.titled-pane > .title 
+{
+-fx-alignment:CENTER;
+}
+.titled-pane > .stack
+{
+
+}
+.titled-pane > .title > .arrow-button 
+{
+    visibility:hidden;
+}
+

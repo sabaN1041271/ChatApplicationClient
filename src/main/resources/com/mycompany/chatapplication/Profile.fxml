@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="4.0" layoutY="3.0" prefHeight="393.0" prefWidth="591.0">
+         <children>
+            <Label prefHeight="53.0" prefWidth="383.0" text="Edit your profile">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="33.0" prefWidth="231.0" text="Name">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUserName" prefHeight="44.0" prefWidth="591.0" />
+            <Label fx:id="lblUserNameEmpty" prefHeight="15.0" prefWidth="358.0" text="Label" visible="false" />
+            <Label prefHeight="40.0" prefWidth="232.0" text="Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtPassword" prefHeight="45.0" prefWidth="591.0" />
+            <Label fx:id="lblPasswordEmpty" prefHeight="15.0" prefWidth="276.0" text="Label" visible="false" />
+            <Label prefHeight="38.0" prefWidth="263.0" text="Profile Picture">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Pane fx:id="paneProfilePicture" prefHeight="66.0" prefWidth="591.0">
+               <children>
+                  <Button fx:id="btnFileUpload" layoutY="12.0" mnemonicParsing="false" onAction="#btnFileUploadClick" prefHeight="43.0" prefWidth="147.0" text="Choose a file">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lblFilePath" layoutX="169.0" layoutY="34.0" prefHeight="15.0" prefWidth="409.0" text="Label" visible="false" />
+               </children></Pane>
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveClick" prefHeight="48.0" prefWidth="103.0" text="Save">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="450.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

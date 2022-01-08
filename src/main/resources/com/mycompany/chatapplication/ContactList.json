@@ -1,0 +1,16 @@
+{
+    "ContactList":[
+        {
+            "userId" : 1,
+            "contactIds" : [2,3]
+        },
+        {
+            "userId" : 2,
+            "contactIds" : [1,3]
+        },
+        {
+            "userId" : 3,
+            "contactIds" : [2,4]
+        }
+    ]
+}

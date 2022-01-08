@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane fx:id="menuPane" layoutX="8.0" layoutY="7.0" prefHeight="43.0" prefWidth="622.0" style="-fx-background-color: grey;">
+          <children>
+            <ImageView fx:id="imgView" fitHeight="35.0" fitWidth="90.0" layoutX="344.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnEditProfile" layoutX="426.0" layoutY="4.0" mnemonicParsing="false" onAction="#openProfilePage" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: white;" text="  Edit Profile" />
+              <ImageView fitHeight="30.0" fitWidth="20.0" layoutX="434.0" layoutY="4.0">
+                 <image>
+                     <Image url="@assets/Pencil_edit_icon.jpg" />
+                 </image>
+              </ImageView>
+            <Button fx:id="btnLogout" layoutX="549.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnLogoutClick" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: white;" text="Logout" />
+         </children>
+      </Pane>
+      <Pane layoutX="8.0" layoutY="49.0" prefHeight="373.0" prefWidth="146.0" style="-fx-background-color: grey;">
+         <children>
+            <VBox fx:id="accordionVBox" layoutY="3.0" prefHeight="197.0" prefWidth="146.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneMembers" layoutX="154.0" layoutY="50.0" prefHeight="373.0" prefWidth="475.0">
+         <children>
+            <Pane layoutY="3.0" prefHeight="55.0" prefWidth="475.0">
+               <children>
+                  <Label fx:id="lblChannelOrUserName" layoutX="65.0" layoutY="18.0" prefHeight="15.0" prefWidth="190.0" text="Label" visible="false" />
+                  <Pane fx:id="paneAddMember" layoutX="356.0" layoutY="10.0" prefHeight="35.0" prefWidth="110.0" visible="false" />
+                  <Pane fx:id="paneImageOfReceiver" layoutX="11.0" layoutY="12.0" prefHeight="30.0" prefWidth="32.0" visible="false" />
+               </children>
+            </Pane>
+            <ScrollPane fx:id="scrollChatPane" layoutY="58.0" prefHeight="220.0" prefWidth="475.0">
+               <content>
+                  <VBox fx:id="ChatVBox" prefHeight="219.0" prefWidth="457.0" />
+               </content></ScrollPane>
+            
+         </children></Pane>
+   </children>
+</AnchorPane>

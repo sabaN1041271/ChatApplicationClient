@@ -1,0 +1,10 @@
+{
+    "UserList":
+            [
+                {"userID":1,"userName":"Charlie","password":"ytwRkl0zKE7mEm3T7bHhMA==","defaultGroupID":0,"profilePictureUrl":"src/main/resources/com/mycompany/chatapplication/assets/Charlie"},
+                {"userID":2,"userName":"Jade","password":"ytwRkl0zKE7mEm3T7bHhMA==","defaultGroupID":0,"profilePictureUrl":"src/main/resources/com/mycompany/chatapplication/assets/jade.png"},
+                {"userID":3,"userName":"Krish","password":"ytwRkl0zKE7mEm3T7bHhMA==","defaultGroupID":0,"profilePictureUrl":"src/main/resources/com/mycompany/chatapplication/assets/krish.png"},
+                {"userID":4,"userName":"John","password":"ytwRkl0zKE7mEm3T7bHhMA==","defaultGroupID":0,"profilePictureUrl":"src/main/resources/com/mycompany/chatapplication/assets/john"},
+                {"userID":5,"userName":"Tom","password":"ytwRkl0zKE7mEm3T7bHhMA==","defaultGroupID":0,"profilePictureUrl":"src/main/resources/com/mycompany/chatapplication/assets/tom"}
+            ]
+        }
