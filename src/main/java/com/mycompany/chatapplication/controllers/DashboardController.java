@@ -45,6 +45,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -75,7 +76,9 @@ public class DashboardController implements Initializable
     @FXML private Pane paneAddMember;
     @FXML private Pane paneImageOfReceiver;
     @FXML private Pane paneMembers;
-  
+   @FXML private GridPane grdViewActiveMembers ;
+    @FXML private Hyperlink hplViewActiveMembers;
+    @FXML private Label lblActiveUserList;
     private ChatClient client;
       public ChatClient getChatClient() {
         return client;
@@ -254,6 +257,8 @@ client.receiveMessageFromServer(ChatVBox);
     }
 
     private void openConversation(String labelText, int groupId) {
+         grdViewActiveMembers.setVisible(true); 
+   hplViewActiveMembers.setVisible(true);
         lblChannelOrUserName.setText("#" +labelText);
         lblChannelOrUserName.setStyle("-fx-font-weight:bold;");
         lblChannelOrUserName.setVisible(true);
@@ -412,14 +417,14 @@ client.receiveMessageFromServer(ChatVBox);
         
         Pane paneText = new Pane();
         paneText.setLayoutX(2);
-        paneText.setLayoutY(276);
-        paneText.setPrefHeight(93);
+        paneText.setLayoutY(292);
+        paneText.setPrefHeight(60);
         paneText.setPrefWidth(469);
         
         TextField txtMessage = new TextField();
         txtMessage.setLayoutX(3);
         txtMessage.setLayoutY(4);
-        txtMessage.setPrefHeight(55);
+        txtMessage.setPrefHeight(50);
         txtMessage.setPrefWidth(469);
 
         Button btnSend = new Button();
@@ -727,7 +732,8 @@ client.receiveMessageFromServer(ChatVBox);
     }
 
     private void openConversationOfUser(String labelText, int userId) {
-        
+         grdViewActiveMembers.setVisible(false); 
+   hplViewActiveMembers.setVisible(false);
          VBox vList = new VBox(10);
          File cssfile = new File("src/main/resources/com/mycompany/chatapplication/assets/CSS/dashboard.css");
          lblChannelOrUserName.setText(labelText);
@@ -1144,6 +1150,14 @@ client.receiveMessageFromServer(ChatVBox);
                         stage.setScene(new Scene(root, 600, 400));
                         stage.show();
                         ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+ 
+  public void hplViewActiveMembersClick(ActionEvent event) throws Exception{
+        if(client.userNames.contains(loggedInUserDetails.getUserName())){
+            client.userNames.remove(loggedInUserDetails.getUserName());
+        }
+        String activeMembers = String.join(",", client.userNames);
+        lblActiveUserList.setText("Active members are :" + activeMembers);
     }
    
 }

@@ -22,6 +22,7 @@ public class ChatClient {
     private Socket socket;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
+    public Set<String> userNames = new HashSet<>();
     
     public ChatClient(Socket socket, String userName) throws IOException, InterruptedException{
         try{
@@ -35,6 +36,10 @@ public class ChatClient {
             bufferedWriter.newLine();
             bufferedWriter.flush();
             
+//            if(bufferedReader.readLine()!= null){
+//                userNames = new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine();
+//            }
+//            System.out.println("Members connected are " + userNames);
         }
         catch(IOException e){
             close(socket,bufferedReader, bufferedWriter);
@@ -81,9 +86,16 @@ public class ChatClient {
                 while(socket.isConnected()){
                     try {
                         String messageFromServer = bufferedReader.readLine();
-                        var stringArray = messageFromServer.split("-");
+                        System.out.println(messageFromServer);
+                        if(!messageFromServer.startsWith("Active")){
+                              var stringArray = messageFromServer.split("-");
                         DashboardController.addNewTitledPane(stringArray[0],Integer.parseInt(stringArray[1]),Integer.parseInt(stringArray[2]),Integer.parseInt(stringArray[3]) ,new Date(stringArray[4]) , vBox);
-                    } catch (IOException ex) {
+                    
+                        }
+                        else{
+                            userNames = new HashSet<>(Arrays.asList(messageFromServer.split(":")[1].split(",")));
+                        }
+                      } catch (IOException ex) {
                         Logger.getLogger(ChatClient.class.getName()).log(Level.SEVERE, null, ex);
                         try {
                             close(socket,bufferedReader, bufferedWriter);

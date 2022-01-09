@@ -12,7 +12,7 @@
 <AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane fx:id="menuPane" layoutX="8.0" layoutY="7.0" prefHeight="43.0" prefWidth="622.0" style="-fx-background-color: grey;">
-          <children>
+         <children>
             <ImageView fx:id="imgView" fitHeight="35.0" fitWidth="90.0" layoutX="344.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btnEditProfile" layoutX="426.0" layoutY="4.0" mnemonicParsing="false" onAction="#openProfilePage" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: white;" text="  Edit Profile" />
               <ImageView fitHeight="30.0" fitWidth="20.0" layoutX="434.0" layoutY="4.0">
@@ -32,15 +32,27 @@
          <children>
             <Pane layoutY="3.0" prefHeight="55.0" prefWidth="475.0">
                <children>
-                  <Label fx:id="lblChannelOrUserName" layoutX="65.0" layoutY="18.0" prefHeight="15.0" prefWidth="190.0" text="Label" visible="false" />
+                  <Label fx:id="lblChannelOrUserName" layoutX="65.0" layoutY="18.0" prefHeight="15.0" prefWidth="90.0" text="Label" visible="false" />
                   <Pane fx:id="paneAddMember" layoutX="356.0" layoutY="10.0" prefHeight="35.0" prefWidth="110.0" visible="false" />
                   <Pane fx:id="paneImageOfReceiver" layoutX="11.0" layoutY="12.0" prefHeight="30.0" prefWidth="32.0" visible="false" />
+                  <Hyperlink fx:id="hplViewActiveMembers" layoutX="194.0" layoutY="14.0" onAction="#hplViewActiveMembersClick" text="View Active Members" visible="false" />
                </children>
             </Pane>
             <ScrollPane fx:id="scrollChatPane" layoutY="58.0" prefHeight="220.0" prefWidth="475.0">
-               <content>
+                 <content>
                   <VBox fx:id="ChatVBox" prefHeight="219.0" prefWidth="457.0" />
                </content></ScrollPane>
+            <GridPane fx:id="grdViewActiveMembers" layoutY="278.0" prefHeight="5.0" prefWidth="458.0" visible="false">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="351.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="lblActiveUserList" prefHeight="15.0" prefWidth="351.0" />
+               </children>
+            </GridPane>
             
          </children></Pane>
    </children>
