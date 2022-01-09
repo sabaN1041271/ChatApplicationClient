@@ -23,11 +23,17 @@ public class ChatClient {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     
-    public ChatClient(Socket socket) throws IOException{
+    public ChatClient(Socket socket, String userName) throws IOException, InterruptedException{
         try{
+             System.out.println("Connecting...");
             this.socket = socket;
-            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            Thread.sleep(1000);
+            System.out.println("Connected!");
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            bufferedWriter.write(userName);
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
             
         }
         catch(IOException e){

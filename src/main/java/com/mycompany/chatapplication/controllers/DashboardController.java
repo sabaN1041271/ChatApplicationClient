@@ -499,7 +499,7 @@ client.receiveMessageFromServer(ChatVBox);
                     
              newBoxChat.getChildren().add(newSplitPane);
              newChatTitledPane.setContent(newBoxChat);
-             vList.getChildren().add(newChatTitledPane);
+             ChatVBox.getChildren().add(newChatTitledPane);
              Date dateOfSending = new Date();	
              GroupChat groupChatNew = new GroupChat();	
              groupChatNew.setUserID(loggedInUserDetails.getUserID());	
@@ -555,6 +555,7 @@ client.receiveMessageFromServer(ChatVBox);
                        groupName = groupList.GroupList.get(i).getGroupName();
                        fileName = groupName + "_" + "GroupChat.json";
                        mapperIds = groupList.GroupList.get(i).getUserIds();
+                       break;
                    }
                }
          }
@@ -630,9 +631,9 @@ client.receiveMessageFromServer(ChatVBox);
                             GroupChatDetailsList groupChatDetails = (GroupChatDetailsList) factory.createObject("groupChat").convertJSONToObject(fileNameArray[0]);
                             List<Object> objList = new ArrayList<Object>();
                             if(groupChatDetails.GroupChatDetailsList != null && groupChatDetails.GroupChatDetailsList.size() > 0){
-                            for(int i=0; i< groupChatDetails.GroupChatDetailsList.size();i++){
-                               objList.add(groupChatDetails.GroupChatDetailsList.get(i));
-                            }
+                                for(int i=0; i< groupChatDetails.GroupChatDetailsList.size();i++){
+                                   objList.add(groupChatDetails.GroupChatDetailsList.get(i));
+                                }
                             }
                  
 

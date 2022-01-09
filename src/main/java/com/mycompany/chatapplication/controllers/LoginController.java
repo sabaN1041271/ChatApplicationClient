@@ -97,8 +97,10 @@ public class LoginController implements Initializable{
                          for(int i=0; i< userList.UserList.size();i++){
                                 if(userList.UserList.get(i).getUserName().equalsIgnoreCase(txtUserName.getText())){
                                     loggedInUserDetails = userList.UserList.get(i);
+                                    break;
                                 }
                           }
+                         client = new ChatClient(new Socket("localhost",8999),loggedInUserDetails.getUserName());
 
                         dashboardController.setLoggedInUserDetails(loggedInUserDetails);
                         dashboardController.setChatClient(client);
@@ -151,11 +153,11 @@ public class LoginController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-           try {
-            client = new ChatClient(new Socket("localhost",6999)); /// connect on port 8999 for group chat.
-        } catch (IOException ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//           try {
+//            client = new ChatClient(new Socket("localhost",8999)); /// connect on port 8999 for group chat.
+//        } catch (IOException ex) {
+//            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
    
