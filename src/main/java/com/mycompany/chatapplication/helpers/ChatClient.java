@@ -32,9 +32,12 @@ public class ChatClient {
             System.out.println("Connected!");
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            bufferedWriter.write(userName);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
+            if(this.socket.getLocalPort() == 8999){
+                System.out.println("Connected to port " + this.socket.getLocalPort());
+                bufferedWriter.write(userName);
+                bufferedWriter.newLine();
+                bufferedWriter.flush();
+            }
             
 //            if(bufferedReader.readLine()!= null){
 //                userNames = new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine();

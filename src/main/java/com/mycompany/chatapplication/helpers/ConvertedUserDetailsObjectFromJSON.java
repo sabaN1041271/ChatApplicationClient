@@ -10,13 +10,7 @@ import java.io.File;
 import java.util.List;
 import com.mycompany.chatapplication.models.UserDetailsList;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
-import java.net.URL;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.chatapplication.models.GroupDetailsList;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 /**
  *
  * @author ntu-user

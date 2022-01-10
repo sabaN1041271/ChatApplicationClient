@@ -84,6 +84,23 @@ public class ProfileController implements Initializable {
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
         
+        if(txtUserName.getText().isEmpty()){
+            lblUserNameEmpty.setVisible(true);
+            lblUserNameEmpty.setText("User name cannot be empty.");
+            return;
+        }
+        else{
+              lblUserNameEmpty.setVisible(false);
+        }
+        if(txtPassword.getText().isEmpty()){
+            lblPasswordEmpty.setVisible(true);
+            lblPasswordEmpty.setText("Password cannot be empty.");
+            return;
+        }
+        else{
+              lblPasswordEmpty.setVisible(false);
+        }
+        
          final String secretKey = "ssshhhhhhhhhhh!!!!";
      
    

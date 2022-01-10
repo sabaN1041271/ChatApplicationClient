@@ -21,7 +21,6 @@ import com.mycompany.chatapplication.factories.JSONToObjectConvertorFactory;
 import com.mycompany.chatapplication.helpers.ChatClient;
 import com.mycompany.chatapplication.helpers.PasswordEncryptionAES;
 import com.mycompany.chatapplication.models.UserDetails;
-import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import javafx.fxml.FXMLLoader;
@@ -31,8 +30,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.Initializable;
 /**
  *
@@ -100,7 +97,7 @@ public class LoginController implements Initializable{
                                     break;
                                 }
                           }
-                         client = new ChatClient(new Socket("localhost",8999),loggedInUserDetails.getUserName());
+                         client = new ChatClient(new Socket("localhost",6999),loggedInUserDetails.getUserName());
 
                         dashboardController.setLoggedInUserDetails(loggedInUserDetails);
                         dashboardController.setChatClient(client);

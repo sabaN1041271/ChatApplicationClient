@@ -153,7 +153,7 @@ client.receiveMessageFromServer(ChatVBox);
         GroupDetailsList groupList = (GroupDetailsList) factory.createObject("groupDetails").convertJSONToObject("");
 
         for(int i=0; i< groupList.GroupList.size();i++){
-            if(groupList.GroupList.get(i).getUserIds().contains(loggedInUserDetails.getUserID())){
+            if(groupList.GroupList.get(i).getUserIds() == null || groupList.GroupList.get(i).getUserIds().contains(loggedInUserDetails.getUserID())){
                 var btnId = "button" + "_" + i;
                 Hyperlink button_i = new Hyperlink();
                 button_i.setText("# "+ groupList.GroupList.get(i).getGroupName());
@@ -336,7 +336,7 @@ client.receiveMessageFromServer(ChatVBox);
         
         GroupChatDetailsList groupChatDetails = (GroupChatDetailsList) factory.createObject("groupChat").convertJSONToObject(fileName);
         UserDetailsList userList = (UserDetailsList) factory.createObject("userDetails").convertJSONToObject("");
-          List<Object> obj = new ArrayList<>();
+        List<Object> obj = new ArrayList<>();
         if(groupChatDetails != null && groupChatDetails.GroupChatDetailsList.size() >0){
         for(int i=0; i< groupChatDetails.GroupChatDetailsList.size();i++){
              obj.add(groupChatDetails.GroupChatDetailsList.get(i));
@@ -559,7 +559,7 @@ client.receiveMessageFromServer(ChatVBox);
                    if(groupList.GroupList.get(i).getGroupID() == groupId){
                        groupName = groupList.GroupList.get(i).getGroupName();
                        fileName = groupName + "_" + "GroupChat.json";
-                       mapperIds = groupList.GroupList.get(i).getUserIds();
+                      
                        break;
                    }
                }
@@ -1153,9 +1153,9 @@ client.receiveMessageFromServer(ChatVBox);
     }
  
   public void hplViewActiveMembersClick(ActionEvent event) throws Exception{
-        if(client.userNames.contains(loggedInUserDetails.getUserName())){
-            client.userNames.remove(loggedInUserDetails.getUserName());
-        }
+//        if(client.userNames.contains(loggedInUserDetails.getUserName())){
+//            client.userNames.remove(loggedInUserDetails.getUserName());
+//        }
         String activeMembers = String.join(",", client.userNames);
         lblActiveUserList.setText("Active members are :" + activeMembers);
     }
