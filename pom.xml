@@ -104,5 +104,5 @@
             </plugin>
         </plugins>
     </build>
-    <name>ChatApplicationCharlie</name>
+    <name>ChatApplicationClient</name>
 </project>

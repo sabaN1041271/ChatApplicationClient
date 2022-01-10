@@ -79,6 +79,7 @@ public class DashboardController implements Initializable
    @FXML private GridPane grdViewActiveMembers ;
     @FXML private Hyperlink hplViewActiveMembers;
     @FXML private Label lblActiveUserList;
+    @FXML private Pane paneText;
     private ChatClient client;
       public ChatClient getChatClient() {
         return client;
@@ -258,7 +259,7 @@ client.receiveMessageFromServer(ChatVBox);
 
     private void openConversation(String labelText, int groupId) {
          grdViewActiveMembers.setVisible(true); 
-   hplViewActiveMembers.setVisible(true);
+         hplViewActiveMembers.setVisible(true);
         lblChannelOrUserName.setText("#" +labelText);
         lblChannelOrUserName.setStyle("-fx-font-weight:bold;");
         lblChannelOrUserName.setVisible(true);
@@ -414,13 +415,6 @@ client.receiveMessageFromServer(ChatVBox);
        // client.receiveMessageFromServer(ChatVBox);
         
         
-        
-        Pane paneText = new Pane();
-        paneText.setLayoutX(2);
-        paneText.setLayoutY(292);
-        paneText.setPrefHeight(60);
-        paneText.setPrefWidth(469);
-        
         TextField txtMessage = new TextField();
         txtMessage.setLayoutX(3);
         txtMessage.setLayoutY(4);
@@ -441,9 +435,8 @@ client.receiveMessageFromServer(ChatVBox);
         paneEmoticons.setPrefWidth(200);
         addEmoticons(paneEmoticons, txtMessage);
         
+        paneText.getChildren().clear();
         paneText.getChildren().addAll(txtMessage,btnSend,paneEmoticons);
-
-        paneMembers.getChildren().add(paneText);
         
         
         btnSend.setOnAction(new EventHandler<ActionEvent>(){
@@ -733,7 +726,7 @@ client.receiveMessageFromServer(ChatVBox);
 
     private void openConversationOfUser(String labelText, int userId) {
          grdViewActiveMembers.setVisible(false); 
-   hplViewActiveMembers.setVisible(false);
+         hplViewActiveMembers.setVisible(false);
          VBox vList = new VBox(10);
          File cssfile = new File("src/main/resources/com/mycompany/chatapplication/assets/CSS/dashboard.css");
          lblChannelOrUserName.setText(labelText);
@@ -909,14 +902,7 @@ client.receiveMessageFromServer(ChatVBox);
         
         });
         
-      
-        
-        
-        Pane paneText = new Pane();
-        paneText.setLayoutX(2);
-        paneText.setLayoutY(276);
-        paneText.setPrefHeight(93);
-        paneText.setPrefWidth(469);
+     
         
         TextField txtMessage = new TextField();
         txtMessage.setLayoutX(3);
@@ -938,8 +924,9 @@ client.receiveMessageFromServer(ChatVBox);
         paneEmoticons.setPrefWidth(200);
         addEmoticons(paneEmoticons, txtMessage);
         
+        paneText.getChildren().clear();
         paneText.getChildren().addAll(txtMessage,btnSend,paneEmoticons);
-        paneMembers.getChildren().add(paneText); 
+      
         
         btnSend.setOnAction(new EventHandler<ActionEvent>(){
             @Override

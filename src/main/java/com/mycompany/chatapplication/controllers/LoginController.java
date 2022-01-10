@@ -97,7 +97,7 @@ public class LoginController implements Initializable{
                                     break;
                                 }
                           }
-                         client = new ChatClient(new Socket("localhost",6999),loggedInUserDetails.getUserName());
+                         client = new ChatClient(new Socket("localhost",8999),loggedInUserDetails.getUserName());
 
                         dashboardController.setLoggedInUserDetails(loggedInUserDetails);
                         dashboardController.setChatClient(client);

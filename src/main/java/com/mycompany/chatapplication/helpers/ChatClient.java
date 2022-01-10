@@ -32,8 +32,8 @@ public class ChatClient {
             System.out.println("Connected!");
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            if(this.socket.getLocalPort() == 8999){
-                System.out.println("Connected to port " + this.socket.getLocalPort());
+            if(this.socket.getPort() == 8999){
+                System.out.println("Connected to port " + this.socket.getPort());
                 bufferedWriter.write(userName);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
@@ -90,13 +90,18 @@ public class ChatClient {
                     try {
                         String messageFromServer = bufferedReader.readLine();
                         System.out.println(messageFromServer);
-                        if(!messageFromServer.startsWith("Active")){
-                              var stringArray = messageFromServer.split("-");
-                        DashboardController.addNewTitledPane(stringArray[0],Integer.parseInt(stringArray[1]),Integer.parseInt(stringArray[2]),Integer.parseInt(stringArray[3]) ,new Date(stringArray[4]) , vBox);
-                    
-                        }
+                        if(socket.getPort() == 6999){
+                            var stringArray = messageFromServer.split("-");
+                            DashboardController.addNewTitledPane(stringArray[0],Integer.parseInt(stringArray[1]),Integer.parseInt(stringArray[2]),Integer.parseInt(stringArray[3]) ,new Date(stringArray[4]) , vBox);                         
+                        }   
                         else{
-                            userNames = new HashSet<>(Arrays.asList(messageFromServer.split(":")[1].split(",")));
+                            if(messageFromServer.startsWith("Active")){
+                                userNames = new HashSet<>(Arrays.asList(messageFromServer.split(":")[1].split(",")));
+                            }
+                            else{
+                                 var stringArray = messageFromServer.split("-");
+                            DashboardController.addNewTitledPane(stringArray[0],Integer.parseInt(stringArray[1]),Integer.parseInt(stringArray[2]),Integer.parseInt(stringArray[3]) ,new Date(stringArray[4]) , vBox);                                           
+                            }
                         }
                       } catch (IOException ex) {
                         Logger.getLogger(ChatClient.class.getName()).log(Level.SEVERE, null, ex);

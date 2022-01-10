@@ -42,17 +42,19 @@
                  <content>
                   <VBox fx:id="ChatVBox" prefHeight="219.0" prefWidth="457.0" />
                </content></ScrollPane>
-            <GridPane fx:id="grdViewActiveMembers" layoutY="278.0" prefHeight="5.0" prefWidth="458.0" visible="false">
+            <GridPane fx:id="grdViewActiveMembers" layoutY="278.0" prefHeight="15.0" prefWidth="475.0" visible="false">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="351.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="448.0" minWidth="10.0" prefWidth="448.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="27.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblActiveUserList" prefHeight="15.0" prefWidth="351.0" />
+                  <Label fx:id="lblActiveUserList" prefHeight="15.0" prefWidth="478.0" text="" />
                </children>
             </GridPane>
+            <Pane fx:id="paneText" layoutX="2.0" layoutY="292.0" prefHeight="60.0" prefWidth="469.0" />
             
          </children></Pane>
    </children>
